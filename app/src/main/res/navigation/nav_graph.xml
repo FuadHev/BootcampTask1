@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.fuadhev.mybootcamp.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.fuadhev.mybootcamp.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.fuadhev.mybootcamp.ui.service.ServicesFragment"
+        android:label="ServicesFragment"
+        tools:layout="@layout/fragment_services"/>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.fuadhev.mybootcamp.ui.payment.PaymentFragment"
+        android:label="PaymentFragment"
+        tools:layout="@layout/fragment_payment"/>
+    <fragment
+        android:id="@+id/othersFragment"
+        android:name="com.fuadhev.mybootcamp.ui.others.OthersFragment"
+        android:label="fragment_others"
+        tools:layout="@layout/fragment_others" >
+        <action
+            android:id="@+id/action_othersFragment_to_quickQuestionsFragment"
+            app:destination="@id/quickQuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/quickQuestionsFragment"
+        android:name="com.fuadhev.mybootcamp.ui.quickquestions.QuickQuestionsFragment"
+        android:label="fragment_quick_questions"
+        tools:layout="@layout/fragment_quick_questions" />
+
+
+</navigation>

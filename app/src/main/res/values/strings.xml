@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">MyBootcamp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="xo_g_lmis_n_orxan_copy">Xoş gəlmisən, Orxan!</string>
+    <string name="ana_s_hif">Ana səhifə</string>
+    <string name="kw_per_s">344.45\nKW/s</string>
+    <string name="invite_fr_gt">Invite friends and\nget free bonuses</string>
+    <string name="x_b_rl_r">Xəbərlər</string>
+    <string name="ortalama_enerji_stehlak">Ortalama enerji\nİstehlakı</string>
+    <string name="prezident_lham_liyev_ming_evir_h_rinin_elektrik_paylay_c_b_k_sinin_avtomatik_dar_etm">Prezident İlham Əliyev Mingəçevir şəhərinin elektrik paylayıcı şəbəkəsinin Avtomatik İdarəetmə...</string>
+    <string name="orkhan_allahverdiyev">Orkhan Allahverdiyev</string>
+    <string name="m_nim_profilim">Mənim profilim</string>
+    <string name="xidm_tl_r">Xidmətlər</string>
+    <string name="diger">Digər</string>
+    <string name="question_txt">Tez-tez\nverilən suallar</string>
+    <string name="profil">Profil</string>
+    <string name="add_auto_top_up">Add auto\nTop-Up</string>
+
+</resources>
