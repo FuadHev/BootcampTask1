@@ -38,12 +38,6 @@ class MainActivity : AppCompatActivity() {
                     R.id.homeFragment->{
                         listOf(homeHeader,bottomMenu,txt66,anaseyfe).visibleEach()
                         listOf(profileHeader,serviceTxt).goneEach()
-//                        homeHeader.visible()
-//                        profileHeader.gone()
-//                        bottomMenu.visible()
-//                        txt66.visible()
-//                        anaseyfe.visible()
-//                        serviceTxt.gone()
 
                     }
                     R.id.servicesFragment->{
@@ -51,12 +45,7 @@ class MainActivity : AppCompatActivity() {
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.xidm_tl_r)
-//                        homeHeader.visible()
-//                        profileHeader.gone()
-//                        bottomMenu.visible()
-//                        txt66.gone()
-//                        anaseyfe.gone()
-//                        serviceTxt.visible()
+
                     }
                     R.id.othersFragment->{
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
@@ -71,8 +60,18 @@ class MainActivity : AppCompatActivity() {
                         serviceTxt.text=resources.getString(R.string.question_txt)
 
                     }
+                    R.id.paymentFragment->{
+                        listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
+                        listOf(profileHeader,txt66,anaseyfe).goneEach()
+                        serviceTxt.text=resources.getString(R.string.payments)
 
+                    }
 
+                    R.id.indicatorsFragment->{
+                        listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
+                        listOf(profileHeader,txt66,anaseyfe).goneEach()
+                        serviceTxt.text=resources.getString(R.string.indicators)
+                    }
                     else -> { binding.bottomMenu.visible() }
                 }
             }
@@ -82,8 +81,8 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.profileIc.setOnClickListener {
-          val navControl=findNavController(R.id.fragmentContainerView)
-            navControl.navigate(R.id.profileFragment)
+          val navControl1=findNavController(R.id.fragmentContainerView)
+            navControl1.navigate(R.id.profileFragment)
         }
         binding.btnBack.setOnClickListener{
             val navControl=findNavController(R.id.fragmentContainerView)

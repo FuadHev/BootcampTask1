@@ -14,7 +14,12 @@
     <string name="xidm_tl_r">Xidmətlər</string>
     <string name="diger">Digər</string>
     <string name="question_txt">Tez-tez\nverilən suallar</string>
+    <string name="payments">Ödəmələr</string>
+    <string name="indicators">Göstəricilər</string>
     <string name="profil">Profil</string>
     <string name="add_auto_top_up">Add auto\nTop-Up</string>
+    <string name="home_energy_analysis">Home Energy Analysis</string>
+    <string name="avg_daily_energy_use">Avg Daily Energy Use</string>
+    <string name="april_13">April 13</string>
 
 </resources>

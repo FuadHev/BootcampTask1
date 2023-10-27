@@ -33,12 +33,25 @@
         <action
             android:id="@+id/action_othersFragment_to_quickQuestionsFragment"
             app:destination="@id/quickQuestionsFragment" />
+        <action
+            android:id="@+id/action_othersFragment_to_safetyFragment"
+            app:destination="@id/safetyFragment" />
     </fragment>
     <fragment
         android:id="@+id/quickQuestionsFragment"
         android:name="com.fuadhev.mybootcamp.ui.quickquestions.QuickQuestionsFragment"
         android:label="fragment_quick_questions"
         tools:layout="@layout/fragment_quick_questions" />
+    <fragment
+        android:id="@+id/indicatorsFragment"
+        android:name="com.fuadhev.mybootcamp.ui.indicators.IndicatorsFragment"
+        android:label="fragment_indicators"
+        tools:layout="@layout/fragment_indicators" />
+    <fragment
+        android:id="@+id/safetyFragment"
+        android:name="com.fuadhev.mybootcamp.ui.safety.SafetyFragment"
+        android:label="fragment_safety"
+        tools:layout="@layout/fragment_safety" />
 
 
 </navigation>

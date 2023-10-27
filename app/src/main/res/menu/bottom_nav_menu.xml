@@ -18,7 +18,7 @@
         android:title="Xidmətlər"
         app:showAsAction="always" />
     <item
-        android:id="@+id/gosterici"
+        android:id="@+id/indicatorsFragment"
         android:icon="@drawable/gosterici_ic"
         android:title="Göstəricilər"
         app:showAsAction="always" />

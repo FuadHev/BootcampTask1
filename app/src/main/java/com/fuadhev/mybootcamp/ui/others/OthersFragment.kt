@@ -26,6 +26,9 @@ class OthersFragment : BaseFragment<FragmentOthersBinding>(FragmentOthersBinding
             btnQuestion.setOnClickListener {
                 findNavController().navigate(OthersFragmentDirections.actionOthersFragmentToQuickQuestionsFragment())
             }
+            btnTehluke.setOnClickListener{
+                findNavController().navigate(OthersFragmentDirections.actionOthersFragmentToSafetyFragment())
+            }
         }
 
     }
