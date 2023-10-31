@@ -10,87 +10,58 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fuadhev.mybootcamp.R
+import com.fuadhev.mybootcamp.common.GenericDiffUtil
 import com.fuadhev.mybootcamp.databinding.ItemServiceBinding
+import com.fuadhev.mybootcamp.model.HistoryUiModel
 import com.fuadhev.mybootcamp.model.ServicesUiModel
+import com.fuadhev.mybootcamp.ui.payment.adapter.HistoryAdapter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
-class ServiceAdapter: RecyclerView.Adapter<ServiceAdapter.ServiceViewHolder>() {
-
+class ServiceAdapter : ListAdapter<ServicesUiModel, ServiceAdapter.ServiceViewHolder>(diffUtil) {
     inner class ServiceViewHolder(val binding: ItemServiceBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ServicesUiModel, context: Context){
 
             with(binding){
                 val resourceId = context.resources.getIdentifier(item.img, "drawable", context.packageName)
-                Glide.with(context) // this, mevcut Activity veya Fragment'ı temsil eder.
+                Glide.with(context)
                     .load(resourceId)
                     .into(img)
-
                 txt.text=item.txt
-
-
-
+                setBgColor(binding.bg,context,resourceId)
             }
-
-        }
-        fun setBgColor(img:ImageView,bg:View){
-            val bitmap: Bitmap? = when (val drawable = img.drawable) {
-                is VectorDrawable -> {
-                    Bitmap.createBitmap(
-                        drawable.intrinsicWidth,
-                        drawable.intrinsicHeight,
-                        Bitmap.Config.ARGB_8888
-                    ).also {
-                        val canvas = Canvas(it)
-                        drawable.setBounds(0, 0, canvas.width, canvas.height)
-                        drawable.draw(canvas)
-                    }
-                }
-                is BitmapDrawable -> drawable.bitmap
-                else -> null
-            }
-            val palette = bitmap?.let { Palette.from(it).generate() }
-            val dominantColor = palette?.dominantSwatch?.rgb
-
-            dominantColor?.let { color ->
-                Log.e("color", "bind: $color")
-                bg.setBackgroundColor(color)
-            }
-
         }
 
     }
-
-
+    fun setBgColor(bg:CardView,context: Context,resourceId:Int){
+        val dominantColor=ContextCompat.getColor(context, R.color.red)
+        val bitmap=ContextCompat.getDrawable(context,resourceId)!!.toBitmap()
+        val color=Palette.from(bitmap).generate().getDominantColor(dominantColor)
+        bg.setCardBackgroundColor(color)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
         val view = ItemServiceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ServiceViewHolder(view)
     }
-
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
-
     override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
-        holder.bind(differ.currentList[position],holder.itemView.context)
-        holder.setBgColor(holder.binding.img,holder.binding.bg)
-    }
+        holder.bind(getItem(position),holder.itemView.context)
 
-    object ServiceDiffUtilCallback : DiffUtil.ItemCallback<ServicesUiModel>() {
-        override fun areItemsTheSame(oldItem: ServicesUiModel, newItem: ServicesUiModel): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(
-            oldItem: ServicesUiModel,
-            newItem: ServicesUiModel,
-        ): Boolean {
-            return oldItem == newItem
-        }
     }
-
-    val differ = AsyncListDiffer(this, ServiceDiffUtilCallback)
 }
+
+private val diffUtil = GenericDiffUtil<ServicesUiModel>(
+    myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id},
+    myContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+)

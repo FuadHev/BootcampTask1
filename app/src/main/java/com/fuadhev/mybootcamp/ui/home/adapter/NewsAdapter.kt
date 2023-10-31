@@ -5,14 +5,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fuadhev.mybootcamp.common.GenericDiffUtil
 import com.fuadhev.mybootcamp.databinding.HomeRvItemBinding
 import com.fuadhev.mybootcamp.databinding.NewsItemBinding
 import com.fuadhev.mybootcamp.model.HomeItem
 import com.fuadhev.mybootcamp.model.NewsUiModel
 
-class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+private val diffUtil = GenericDiffUtil<NewsUiModel>(
+    myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id },
+    myContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+)
+class NewsAdapter : ListAdapter<NewsUiModel,NewsAdapter.NewsViewHolder>(diffUtil) {
 
     inner class NewsViewHolder(val binding: NewsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,8 +31,6 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
                     .into(newsImg)
 
                 newsTxt.text=item.newsTxt
-
-
             }
 
         }
@@ -37,25 +41,27 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
         return NewsViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
+//    override fun getItemCount(): Int {
+//        return
+//    }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
-        holder.bind(differ.currentList[position],holder.itemView.context)
+        holder.bind(getItem(position),holder.itemView.context)
     }
 
-    object NewsDiffUtilCallback : DiffUtil.ItemCallback<NewsUiModel>() {
-        override fun areItemsTheSame(oldItem: NewsUiModel, newItem: NewsUiModel): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(
-            oldItem: NewsUiModel,
-            newItem: NewsUiModel,
-        ): Boolean {
-            return oldItem == newItem
-        }
-    }
+//    object NewsDiffUtilCallback : DiffUtil.ItemCallback<NewsUiModel>() {
+//        override fun areItemsTheSame(oldItem: NewsUiModel, newItem: NewsUiModel): Boolean {
+//            return oldItem.id == newItem.id
+//        }
+//        override fun areContentsTheSame(
+//            oldItem: NewsUiModel,
+//            newItem: NewsUiModel,
+//        ): Boolean {
+//            return oldItem == newItem
+//        }
+//    }
 
-    val differ = AsyncListDiffer(this, NewsDiffUtilCallback)
+
+
+//    val differ = AsyncListDiffer(this, diffUtil)
 }

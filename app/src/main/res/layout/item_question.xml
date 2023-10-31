@@ -34,6 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:fontFamily="@font/outfit_medium"
             android:text="Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün onlayn müraciət edə bilərəm?"
             android:layout_marginEnd="2dp"
             android:layout_marginTop="5dp"

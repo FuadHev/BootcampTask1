@@ -5,14 +5,20 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fuadhev.mybootcamp.common.GenericDiffUtil
 import com.fuadhev.mybootcamp.databinding.HomeRvItemBinding
 import com.fuadhev.mybootcamp.model.HomeItem
 
-class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
 
+
+private val diffUtil = GenericDiffUtil<HomeItem>(
+    myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id },
+    myContentsTheSame = { oldItem, newItem -> oldItem == newItem }
+)
+class HomeAdapter: ListAdapter<HomeItem, HomeAdapter.HomeViewHolder>(diffUtil) {
     inner class HomeViewHolder(val binding: HomeRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
             fun bind(item: HomeItem,context:Context){
@@ -26,8 +32,7 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
                     txt.text=item.txt
                 }
 
-                }
-
+            }
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -35,25 +40,28 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
         return HomeViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-       return differ.currentList.size
-    }
+//    override fun getItemCount(): Int {
+//       return differ.currentList.size
+//
+//
+//    }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.bind(differ.currentList[position],holder.itemView.context)
+        holder.bind(getItem(position),holder.itemView.context)
     }
 
-    object HomeDiffUtilCallback : DiffUtil.ItemCallback<HomeItem>() {
-        override fun areItemsTheSame(oldItem: HomeItem, newItem: HomeItem): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(
-            oldItem: HomeItem,
-            newItem: HomeItem,
-        ): Boolean {
-            return oldItem == newItem
-        }
-    }
+//     object HomeDiffUtilCallback : DiffUtil.ItemCallback<HomeItem>() {
+//        override fun areItemsTheSame(oldItem: HomeItem, newItem: HomeItem): Boolean {
+//            return oldItem.id == newItem.id
+//        }
+//        override fun areContentsTheSame(
+//            oldItem: HomeItem,
+//            newItem: HomeItem,
+//        ): Boolean {
+//            return oldItem == newItem
+//        }
+//    }
 
-    val differ = AsyncListDiffer(this, HomeDiffUtilCallback)
+
+//    val differ = AsyncListDiffer(this, diffUtil)
 }

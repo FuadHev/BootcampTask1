@@ -16,7 +16,7 @@ abstract class BaseFragment<VB : ViewBinding>(
 
     protected abstract fun observeEvents()
     protected abstract fun onCreateFinish()
-    protected abstract fun setupListeners()
+    protected open fun setupListeners() = Unit
 
 
     override fun onCreateView(

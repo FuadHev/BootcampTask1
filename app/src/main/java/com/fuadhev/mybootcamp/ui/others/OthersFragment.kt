@@ -14,11 +14,9 @@ import com.fuadhev.mybootcamp.databinding.FragmentOthersBinding
 class OthersFragment : BaseFragment<FragmentOthersBinding>(FragmentOthersBinding::inflate) {
 
     override fun observeEvents() {
-
     }
 
     override fun onCreateFinish() {
-
     }
 
     override fun setupListeners() {

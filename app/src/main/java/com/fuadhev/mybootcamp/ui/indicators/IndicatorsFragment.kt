@@ -25,10 +25,9 @@ class IndicatorsFragment : BaseFragment<FragmentIndicatorsBinding>(FragmentIndic
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         fragmentList.add(YearlyFragment())
         fragmentList.add(MonthlyFragment())
-
-
 
         fragmentTitleList.add("Yearly")
         fragmentTitleList.add("Monthly")
@@ -55,10 +54,9 @@ class IndicatorsFragment : BaseFragment<FragmentIndicatorsBinding>(FragmentIndic
                 tab.text = fragmentTitleList[position]
 
         }.attach()
-//
+
     }
     override fun observeEvents() {
-
 
     }
 

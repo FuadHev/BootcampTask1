@@ -26,27 +26,22 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     override fun observeEvents() {
 
     }
-
     override fun onCreateFinish() {
         setAdapters()
     }
 
-    override fun setupListeners() {
-
-    }
 
     private fun setAdapters(){
-        homeAdapter.differ.submitList(arrayListOf(HomeItem(1,"Ortalama enerji\nİstehlakı ","ortalama","#294D8C"),
+        homeAdapter.submitList(arrayListOf(HomeItem(1,"Ortalama enerji\nİstehlakı ","ortalama","#294D8C"),
             HomeItem(2," Add auto\nTop-Up","add_auto","#A8C5B7"),
-            HomeItem(3,"Enerjiyə qənaət\nməsləhətləri","enerji","#EA5455E8")))
+            HomeItem(3,"Enerjiyə qənaət\nməsləhətləri","enerji","#EA5455")))
 
-        newsAdapter.differ.submitList(arrayListOf(NewsUiModel(1,"Prezident İlham Əliyev Mingəçevir şəhərinin elektrik paylayıcı şəbəkəsinin Avtomatik İdarəetmə...","xb2"),
+        newsAdapter.submitList(arrayListOf(NewsUiModel(1,"Prezident İlham Əliyev Mingəçevir şəhərinin elektrik paylayıcı şəbəkəsinin Avtomatik İdarəetmə...","xb2"),
             NewsUiModel(2,"Ağcabədinin Pərioğullar və Hacıbədəlli kəndlərinin elektrik şəbəkəsi yenidən qurulur.","xb1")
         ))
 
         binding.homeRv.adapter=homeAdapter
         binding.newsRv.adapter=newsAdapter
     }
-
 
 }

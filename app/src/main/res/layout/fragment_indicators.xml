@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/home_bg_img"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
         <View
             android:id="@+id/view"
             android:layout_width="50dp"
@@ -48,19 +58,20 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
-            android:background="@drawable/profile_btn_bg"
+            android:background="@drawable/tabi_tem_bg"
             android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:padding="6dp"
+            android:padding="4dp"
             app:tabMode="fixed"
             app:tabGravity="fill"
+            app:tabRippleColor="@null"
             app:tabIndicatorGravity="stretch"
             app:tabIndicatorAnimationMode="elastic"
             app:tabSelectedTextColor="@color/dark_blue"
             app:tabIndicatorColor="@null"
             app:tabIndicatorFullWidth="true"
-            app:tabIndicator="@drawable/tabi_tem_bg"
+            app:tabIndicator="@drawable/profile_btn_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13">
@@ -75,11 +86,14 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:elevation="-5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tabLayout"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tabLayout"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" >
+
+        </androidx.viewpager2.widget.ViewPager2>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

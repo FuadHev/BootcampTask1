@@ -12,9 +12,11 @@
         android:id="@+id/bottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
+        app:itemActiveIndicatorStyle="@null"
 
         app:itemIconTint="@color/bottom_btn_bg_selector"
-        app:itemRippleColor="@color/dark_blue"
+        app:itemRippleColor="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

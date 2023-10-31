@@ -24,7 +24,11 @@
         android:id="@+id/paymentFragment"
         android:name="com.fuadhev.mybootcamp.ui.payment.PaymentFragment"
         android:label="PaymentFragment"
-        tools:layout="@layout/fragment_payment"/>
+        tools:layout="@layout/fragment_payment">
+        <action
+            android:id="@+id/action_paymentFragment_to_autoTopUpFragment"
+            app:destination="@id/autoTopUpFragment" />
+    </fragment>
     <fragment
         android:id="@+id/othersFragment"
         android:name="com.fuadhev.mybootcamp.ui.others.OthersFragment"
@@ -52,6 +56,11 @@
         android:name="com.fuadhev.mybootcamp.ui.safety.SafetyFragment"
         android:label="fragment_safety"
         tools:layout="@layout/fragment_safety" />
+    <fragment
+        android:id="@+id/autoTopUpFragment"
+        android:name="com.fuadhev.mybootcamp.ui.autotopup.AutoTopUpFragment"
+        android:label="fragment_auto_top_up"
+        tools:layout="@layout/fragment_auto_top_up" />
 
 
 </navigation>

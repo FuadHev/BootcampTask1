@@ -21,5 +21,9 @@
     <string name="home_energy_analysis">Home Energy Analysis</string>
     <string name="avg_daily_energy_use">Avg Daily Energy Use</string>
     <string name="april_13">April 13</string>
+    <string name="elektrik_enerjisi">Elektrik enerjisi</string>
+    <string name="go">Go</string>
+    <string name="siz_limiti_t_yin_etdiniz">Siz limiti təyin etdiniz</string>
+    <string name="balans_bu_m_bl_d_nd">Balans bu məbləğə\ndüşəndə</string>
 
 </resources>

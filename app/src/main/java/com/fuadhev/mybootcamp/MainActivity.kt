@@ -29,65 +29,53 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
             with(binding){
+
                 when (destination.id) {
                     R.id.profileFragment->{
-
                         listOf(homeHeader,bottomMenu).goneEach()
                         profileHeader.visible()
                     }
                     R.id.homeFragment->{
                         listOf(homeHeader,bottomMenu,txt66,anaseyfe).visibleEach()
                         listOf(profileHeader,serviceTxt).goneEach()
-
                     }
                     R.id.servicesFragment->{
-
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.xidm_tl_r)
-
                     }
                     R.id.othersFragment->{
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.diger)
-
                     }
                     R.id.quickQuestionsFragment->{
-
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.question_txt)
-
                     }
                     R.id.paymentFragment->{
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.payments)
-
                     }
-
                     R.id.indicatorsFragment->{
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.indicators)
                     }
+                    R.id.autoTopUpFragment->{
+                        listOf(homeHeader,bottomMenu).goneEach()
+                    }
                     else -> { binding.bottomMenu.visible() }
                 }
             }
-
-
         }
-
-
         binding.profileIc.setOnClickListener {
-          val navControl1=findNavController(R.id.fragmentContainerView)
-            navControl1.navigate(R.id.profileFragment)
+            navController.navigate(R.id.profileFragment)
         }
         binding.btnBack.setOnClickListener{
-            val navControl=findNavController(R.id.fragmentContainerView)
-            navControl.popBackStack()
+            navController.popBackStack()
         }
-
     }
 }
