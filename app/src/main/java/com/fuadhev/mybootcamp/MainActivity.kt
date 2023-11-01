@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import androidx.core.view.forEach
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -26,7 +27,16 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomMenu, navController)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
+
+
+        binding.bottomMenu.menu
+
+        binding.bottomMenu.setOnItemSelectedListener {
+            NavigationUI.onNavDestinationSelected(it,navController)
+            true
+        }
+
+        navController.addOnDestinationChangedListener { controller, destination, _ ->
 
             with(binding){
 
@@ -50,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                         serviceTxt.text=resources.getString(R.string.diger)
                     }
                     R.id.quickQuestionsFragment->{
+
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.question_txt)
@@ -63,6 +74,13 @@ class MainActivity : AppCompatActivity() {
                         listOf(homeHeader,bottomMenu,serviceTxt).visibleEach()
                         listOf(profileHeader,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.indicators)
+                    }
+                    R.id.safetyFragment->{
+
+                        listOf(homeHeader,serviceTxt).visibleEach()
+                        listOf(profileHeader,bottomMenu,txt66,anaseyfe).goneEach()
+                        serviceTxt.text=resources.getString(R.string.safety)
+
                     }
                     R.id.autoTopUpFragment->{
                         listOf(homeHeader,bottomMenu).goneEach()
