@@ -36,7 +36,7 @@ class QuickQuestionsFragment : BaseFragment<FragmentQuickQuestionsBinding>(Fragm
 
     fun setAdapter(){
 
-        questionAdapter.differ.submitList(arrayListOf(QuestionUiModel(1,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün onlayn müraciət edə bilərəm?"),
+        questionAdapter.submitList(arrayListOf(QuestionUiModel(1,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün onlayn müraciət edə bilərəm?"),
             QuestionUiModel(2,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün qoşulma haqqını onlayn ödəyə bilərəm?"),
             QuestionUiModel(3,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün hara müraciət edə bilərəm?"),
             QuestionUiModel(4,"Texniki şərt almaq üçün hansı sənədlər tələb olunur?"),
