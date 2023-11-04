@@ -22,15 +22,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
     private val newsAdapter by lazy {
         NewsAdapter()
     }
-
     override fun observeEvents() {
 
     }
     override fun onCreateFinish() {
         setAdapters()
     }
-
-
     private fun setAdapters(){
         homeAdapter.submitList(arrayListOf(HomeItem(1,"Ortalama enerji\nİstehlakı ","ortalama","#294D8C"),
             HomeItem(2," Add auto\nTop-Up","add_auto","#A8C5B7"),

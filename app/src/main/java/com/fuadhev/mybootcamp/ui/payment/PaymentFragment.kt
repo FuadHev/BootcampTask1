@@ -20,6 +20,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
     private val historyAdapter by lazy {
         HistoryAdapter()
     }
+
     override fun observeEvents() {
 
     }
@@ -33,14 +34,17 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>(FragmentPaymentBind
             findNavController().navigate(PaymentFragmentDirections.actionPaymentFragmentToAutoTopUpFragment())
         }
     }
-    private fun setAdapter(){
 
-        historyAdapter.submitList(arrayListOf(
-            HistoryUiModel(1,"11.55","30632 KW/s","165 kW/s","06.03.2023"),
-            HistoryUiModel(2,"19.18","30467 KW/s","274 kW/s","03.02.2023"),
-            HistoryUiModel(3,"30.02","30193 KW/s","382 kW/s","05.01.2023")
-        ))
-        binding.historyRv.adapter=historyAdapter
+    private fun setAdapter() {
+
+        historyAdapter.submitList(
+            arrayListOf(
+                HistoryUiModel(1, "11.55", "30632 KW/s", "165 kW/s", "06.03.2023"),
+                HistoryUiModel(2, "19.18", "30467 KW/s", "274 kW/s", "03.02.2023"),
+                HistoryUiModel(3, "30.02", "30193 KW/s", "382 kW/s", "05.01.2023")
+            )
+        )
+        binding.historyRv.adapter = historyAdapter
 
     }
 

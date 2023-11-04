@@ -16,7 +16,7 @@ import com.fuadhev.mybootcamp.model.HistoryUiModel
 import com.fuadhev.mybootcamp.model.HomeItem
 import com.fuadhev.mybootcamp.model.QuestionUiModel
 
-class QuestionAdapter : ListAdapter<QuestionUiModel,QuestionAdapter.QuestionViewHolder>(diffUtil) {
+class QuestionAdapter : ListAdapter<QuestionUiModel, QuestionAdapter.QuestionViewHolder>(diffUtil) {
     inner class QuestionViewHolder(val binding: ItemQuestionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: QuestionUiModel, context: Context) {
@@ -25,6 +25,7 @@ class QuestionAdapter : ListAdapter<QuestionUiModel,QuestionAdapter.QuestionView
             }
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
         val view = ItemQuestionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return QuestionViewHolder(view)
@@ -35,6 +36,7 @@ class QuestionAdapter : ListAdapter<QuestionUiModel,QuestionAdapter.QuestionView
     }
 
 }
+
 private val diffUtil = GenericDiffUtil<QuestionUiModel>(
     myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id },
     myContentsTheSame = { oldItem, newItem -> oldItem == newItem }

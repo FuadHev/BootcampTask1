@@ -1,7 +1,6 @@
 package com.fuadhev.mybootcamp.ui.service
 
 
-
 import androidx.navigation.fragment.findNavController
 import com.fuadhev.mybootcamp.common.base.BaseFragment
 import com.fuadhev.mybootcamp.databinding.FragmentServicesBinding
@@ -14,30 +13,45 @@ import kotlinx.coroutines.launch
 import java.util.logging.Handler
 
 
-class ServicesFragment : BaseFragment<FragmentServicesBinding>(FragmentServicesBinding::inflate){
+class ServicesFragment : BaseFragment<FragmentServicesBinding>(FragmentServicesBinding::inflate) {
 
-    private lateinit var serviceAdapter :ServiceAdapter
+    private lateinit var serviceAdapter: ServiceAdapter
 
     override fun observeEvents() {
-
     }
+
     override fun onCreateFinish() {
-        serviceAdapter= ServiceAdapter()
+        serviceAdapter = ServiceAdapter()
 
-        serviceAdapter.submitList(arrayListOf(ServicesUiModel(1,"Əhali abonentinin enerji təchizatı şəbəkəsinə qoşulması","ehali"),
-            ServicesUiModel(2,"Qoşulma Haqqının Onlayn Ödəlməsi","qosulma"),
-            ServicesUiModel(4,"Borcun araşdırılması və borcun olmaması (və ya olması) barədə sənədin verilməsi","borc"),
-            ServicesUiModel(3,"Kalkulyatorlar","kalkulyator"),
-            ServicesUiModel(5,"Əhali istehlakçısının ad dəyişdirilməsi","ehaliistehlak"),
-            ServicesUiModel(6,"Abonentin geniş tarixçəsinin verilməsi","abonent"),
-            ServicesUiModel(7,"Yük hesabatının hazırlanması","yukhesabat"),
-            ServicesUiModel(8,"İstehlakçının balansında olan elektrik şəbəkələrinə və avadanlıqlarına texniki xidmətin göstərilməsi","istehlakci")
-        ))
+        serviceAdapter.submitList(
+            arrayListOf(
+                ServicesUiModel(
+                    1,
+                    "Əhali abonentinin enerji təchizatı şəbəkəsinə qoşulması",
+                    "ehali"
+                ),
+                ServicesUiModel(2, "Qoşulma Haqqının Onlayn Ödəlməsi", "qosulma"),
+                ServicesUiModel(
+                    4,
+                    "Borcun araşdırılması və borcun olmaması (və ya olması) barədə sənədin verilməsi",
+                    "borc"
+                ),
+                ServicesUiModel(3, "Kalkulyatorlar", "kalkulyator"),
+                ServicesUiModel(5, "Əhali istehlakçısının ad dəyişdirilməsi", "ehaliistehlak"),
+                ServicesUiModel(6, "Abonentin geniş tarixçəsinin verilməsi", "abonent"),
+                ServicesUiModel(7, "Yük hesabatının hazırlanması", "yukhesabat"),
+                ServicesUiModel(
+                    8,
+                    "İstehlakçının balansında olan elektrik şəbəkələrinə və avadanlıqlarına texniki xidmətin göstərilməsi",
+                    "istehlakci"
+                )
+            )
+        )
         setAdapter()
-   }
+    }
 
-    private fun setAdapter(){
-            binding.serviceRv.adapter=serviceAdapter
+    private fun setAdapter() {
+        binding.serviceRv.adapter = serviceAdapter
     }
 
 }

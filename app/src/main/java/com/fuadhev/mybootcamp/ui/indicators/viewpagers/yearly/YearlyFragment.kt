@@ -20,8 +20,5 @@ class YearlyFragment : BaseFragment<FragmentYearlyBinding>(FragmentYearlyBinding
 
     }
 
-    override fun setupListeners() {
-
-    }
 
 }

@@ -32,36 +32,40 @@ import kotlinx.coroutines.launch
 class ServiceAdapter : ListAdapter<ServicesUiModel, ServiceAdapter.ServiceViewHolder>(diffUtil) {
     inner class ServiceViewHolder(val binding: ItemServiceBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ServicesUiModel, context: Context){
+        fun bind(item: ServicesUiModel, context: Context) {
 
-            with(binding){
-                val resourceId = context.resources.getIdentifier(item.img, "drawable", context.packageName)
+            with(binding) {
+                val resourceId =
+                    context.resources.getIdentifier(item.img, "drawable", context.packageName)
                 Glide.with(context)
                     .load(resourceId)
                     .into(img)
-                txt.text=item.txt
-                setBgColor(binding.bg,context,resourceId)
+                txt.text = item.txt
+                setBgColor(binding.bg, context, resourceId)
             }
         }
 
     }
-    fun setBgColor(bg:CardView,context: Context,resourceId:Int){
-        val dominantColor=ContextCompat.getColor(context, R.color.red)
-        val bitmap=ContextCompat.getDrawable(context,resourceId)!!.toBitmap()
-        val color=Palette.from(bitmap).generate().getDominantColor(dominantColor)
+
+    fun setBgColor(bg: CardView, context: Context, resourceId: Int) {
+        val dominantColor = ContextCompat.getColor(context, R.color.red)
+        val bitmap = ContextCompat.getDrawable(context, resourceId)!!.toBitmap()
+        val color = Palette.from(bitmap).generate().getDominantColor(dominantColor)
         bg.setCardBackgroundColor(color)
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServiceViewHolder {
         val view = ItemServiceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ServiceViewHolder(view)
     }
+
     override fun onBindViewHolder(holder: ServiceViewHolder, position: Int) {
-        holder.bind(getItem(position),holder.itemView.context)
+        holder.bind(getItem(position), holder.itemView.context)
 
     }
 }
 
 private val diffUtil = GenericDiffUtil<ServicesUiModel>(
-    myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id},
+    myItemsTheSame = { oldItem, newItem -> oldItem.id == newItem.id },
     myContentsTheSame = { oldItem, newItem -> oldItem == newItem }
 )

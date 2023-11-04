@@ -16,9 +16,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
 
     override fun observeEvents() {
 
-//        val acty=requireActivity() as MainActivity
-
-
     }
 
     override fun onCreateFinish() {

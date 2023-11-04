@@ -27,19 +27,13 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.bottomMenu, navController)
 
-
-
         binding.bottomMenu.menu
-
         binding.bottomMenu.setOnItemSelectedListener {
             NavigationUI.onNavDestinationSelected(it,navController)
             true
         }
-
-        navController.addOnDestinationChangedListener { controller, destination, _ ->
-
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             with(binding){
-
                 when (destination.id) {
                     R.id.profileFragment->{
                         listOf(homeHeader,bottomMenu).goneEach()
@@ -76,16 +70,14 @@ class MainActivity : AppCompatActivity() {
                         serviceTxt.text=resources.getString(R.string.indicators)
                     }
                     R.id.safetyFragment->{
-
                         listOf(homeHeader,serviceTxt).visibleEach()
                         listOf(profileHeader,bottomMenu,txt66,anaseyfe).goneEach()
                         serviceTxt.text=resources.getString(R.string.safety)
-
                     }
                     R.id.autoTopUpFragment->{
                         listOf(homeHeader,bottomMenu).goneEach()
                     }
-                    else -> { binding.bottomMenu.visible() }
+                    else -> { binding.bottomMenu.visible()}
                 }
             }
         }

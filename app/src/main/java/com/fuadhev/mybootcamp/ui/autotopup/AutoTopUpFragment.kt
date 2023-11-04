@@ -18,7 +18,6 @@ class AutoTopUpFragment : BaseFragment<FragmentAutoTopUpBinding>(FragmentAutoTop
     override fun onCreateFinish() {
     }
     override fun setupListeners() {
-
         binding.btnClose.setOnClickListener{
             findNavController().popBackStack()
         }

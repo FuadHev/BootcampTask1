@@ -18,12 +18,10 @@ class SafetyFragment : BaseFragment<FragmentSafetyBinding>(FragmentSafetyBinding
     }
 
     override fun onCreateFinish() {
-        binding.webview.settings.javaScriptEnabled=true
+        binding.webview.settings.javaScriptEnabled = true
         binding.webview.loadUrl("https://www.google.com/?hl=tr")
 
     }
-
-
 
 
 }

@@ -20,11 +20,11 @@ class OthersFragment : BaseFragment<FragmentOthersBinding>(FragmentOthersBinding
     }
 
     override fun setupListeners() {
-        with(binding){
+        with(binding) {
             btnQuestion.setOnClickListener {
                 findNavController().navigate(OthersFragmentDirections.actionOthersFragmentToQuickQuestionsFragment())
             }
-            btnTehluke.setOnClickListener{
+            btnTehluke.setOnClickListener {
                 findNavController().navigate(OthersFragmentDirections.actionOthersFragmentToSafetyFragment())
             }
         }

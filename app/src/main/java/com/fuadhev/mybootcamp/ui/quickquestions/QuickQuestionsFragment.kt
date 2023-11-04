@@ -12,7 +12,8 @@ import com.fuadhev.mybootcamp.model.QuestionUiModel
 import com.fuadhev.mybootcamp.ui.quickquestions.adapter.QuestionAdapter
 
 
-class QuickQuestionsFragment : BaseFragment<FragmentQuickQuestionsBinding>(FragmentQuickQuestionsBinding::inflate) {
+class QuickQuestionsFragment :
+    BaseFragment<FragmentQuickQuestionsBinding>(FragmentQuickQuestionsBinding::inflate) {
 
 
     private val questionAdapter by lazy {
@@ -29,24 +30,40 @@ class QuickQuestionsFragment : BaseFragment<FragmentQuickQuestionsBinding>(Fragm
 
     }
 
-    override fun setupListeners() {
+    fun setAdapter() {
 
-    }
+        questionAdapter.submitList(
+            arrayListOf(
+                QuestionUiModel(
+                    1,
+                    "Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün onlayn müraciət edə bilərəm?"
+                ),
+                QuestionUiModel(
+                    2,
+                    "Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün qoşulma haqqını onlayn ödəyə bilərəm?"
+                ),
+                QuestionUiModel(
+                    3,
+                    "Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün hara müraciət edə bilərəm?"
+                ),
+                QuestionUiModel(4, "Texniki şərt almaq üçün hansı sənədlər tələb olunur?"),
+                QuestionUiModel(
+                    5,
+                    "Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün nə qədər vəsait ödəməliyəm?"
+                ),
+                QuestionUiModel(6, "Texniki şərtim var güc artırmaq istəyirəm, nə etməliyəm?"),
+                QuestionUiModel(
+                    7,
+                    "Enerji təchizatı müəssisəsi müraciətin icrasından imtina edə bilərmi?"
+                ),
+                QuestionUiModel(
+                    8,
+                    "Tikinti-quraşdırma işlərinin aparılması üçün ETM-ə qoşulma haqqından başqa əlavə vəsait ödənilirmi?"
+                )
+            )
+        )
 
-
-    fun setAdapter(){
-
-        questionAdapter.submitList(arrayListOf(QuestionUiModel(1,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün onlayn müraciət edə bilərəm?"),
-            QuestionUiModel(2,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün qoşulma haqqını onlayn ödəyə bilərəm?"),
-            QuestionUiModel(3,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün hara müraciət edə bilərəm?"),
-            QuestionUiModel(4,"Texniki şərt almaq üçün hansı sənədlər tələb olunur?"),
-            QuestionUiModel(5,"Elektrik Təchizatı şəbəkəsinə qoşulmaq üçün nə qədər vəsait ödəməliyəm?"),
-            QuestionUiModel(6,"Texniki şərtim var güc artırmaq istəyirəm, nə etməliyəm?"),
-            QuestionUiModel(7,"Enerji təchizatı müəssisəsi müraciətin icrasından imtina edə bilərmi?"),
-            QuestionUiModel(8,"Tikinti-quraşdırma işlərinin aparılması üçün ETM-ə qoşulma haqqından başqa əlavə vəsait ödənilirmi?")
-            ))
-
-        binding.questionsRv.adapter=questionAdapter
+        binding.questionsRv.adapter = questionAdapter
     }
 
 }

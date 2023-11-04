@@ -22,9 +22,5 @@ class MonthlyFragment : BaseFragment<FragmentMonthlyBinding>(FragmentMonthlyBind
 
     }
 
-    override fun setupListeners() {
-
-
-    }
 
 }

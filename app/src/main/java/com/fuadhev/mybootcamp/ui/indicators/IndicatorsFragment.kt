@@ -18,21 +18,19 @@ import com.fuadhev.mybootcamp.ui.indicators.viewpagers.yearly.YearlyFragment
 import com.google.android.material.tabs.TabLayoutMediator
 import java.time.Year
 
-class IndicatorsFragment : BaseFragment<FragmentIndicatorsBinding>(FragmentIndicatorsBinding::inflate) {
+class IndicatorsFragment :
+    BaseFragment<FragmentIndicatorsBinding>(FragmentIndicatorsBinding::inflate) {
 
     private val fragmentList = ArrayList<Fragment>()
     private val fragmentTitleList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         fragmentList.add(YearlyFragment())
         fragmentList.add(MonthlyFragment())
 
         fragmentTitleList.add("Yearly")
         fragmentTitleList.add("Monthly")
-
-
     }
 
     inner class MyViewPagerAdapter(fragmentActivity: FragmentActivity) :
@@ -44,29 +42,23 @@ class IndicatorsFragment : BaseFragment<FragmentIndicatorsBinding>(FragmentIndic
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
         }
-
     }
+
     private fun setTabLayoutManager() {
         val adapter = MyViewPagerAdapter(requireActivity())
         binding.viewpager.adapter = adapter
 
         TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
-                tab.text = fragmentTitleList[position]
+            tab.text = fragmentTitleList[position]
 
         }.attach()
-
     }
-    override fun observeEvents() {
 
+    override fun observeEvents() {
     }
 
     override fun onCreateFinish() {
         setTabLayoutManager()
-
-    }
-
-    override fun setupListeners() {
-
 
     }
 
